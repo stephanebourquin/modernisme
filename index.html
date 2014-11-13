@@ -158,7 +158,7 @@
      		function go_to(widget,url) {	
 			
 							$.ui.showMask('recherche');	
-													
+							$("#gallery").html("");						
 								$.ajax({
 									url:url+"?ajax=true",
 									success: function (data) {
@@ -320,7 +320,7 @@
 			.expo li {padding:5px !important}
 			.expo li img {height:40px;width:auto}
 			
-			.button {color:#ccc !important}
+			.button {color:#white !important}
 			
 			.logo_img {width:auto !important;height:25px !important;position:relative;left:-10px;margin-right:10px !important;vertical-align:middle !important}
 			.delete_gallery{float:right;background:white;border-radius:4px;color:black;font-size:10px;padding:5px}
@@ -350,6 +350,7 @@
 								<li ><a href="#architectes">Les architectes</a></li>
 								<li ><a href="#villes">Villes</a></li>
 								<li ><a href="#regions">Pays (+Régions)</a></li>
+								<li ><a href="#search">Recherche</a></li>
 							</ul>
 							
 							<h1>à Proximité</h1>
@@ -362,56 +363,7 @@
 												</div>
 							 </div>	
 							
-							<ul class="list"  id="list_lieu">
-							</ul>
-								<script type="text/javascript">
-								
-							var x=document.getElementById("list_lieu");
-														var options = {
-																	  enableHighAccuracy: true,
-																	  timeout: 5000,
-																	  maximumAge: 0
-																	};
-
-														function getLocation() {
-														var radius =input1.value ; 
-														  $("#list_lieu").html ("   Recherche de bâtiments dans un rayon de " + radius + "km");
-														  
-														  if (navigator.geolocation)
-															{
-															navigator.geolocation.getCurrentPosition(showPosition,error,options);
-															}
-														  else{x.innerHTML="Geolocation is not supported by this browser.";}
-														function error(err) {
-															  console.warn('ERROR(' + err.code + '): ' + err.message);
-															};						}
-														function showPosition(position)
-														  {
-														 // x.innerHTML="Latitude: " + position.coords.latitude + 
-														 // "<br>Longitude: " + position.coords.longitude;	
-														 var radius = input1.value;
-																	  $.get( "http://art-zoo.com/modernisme/?find_lieu=true&near_lat=" + position.coords.latitude + "&near_lng=" + position.coords.longitude + "&radius=" + radius , function( data ) {
-																			$( "#list_lieu" ).html( data );
-																			//alert( "Load was performed." );
-																		});
-														  }
-														
-															   
-														var input1=$("#output1").get();
-														var slider1 = $('#slider1').range({
-														  value: 1,
-														  min: 1,
-														  max: 1000,
-														  stepFunc: function(percentage) {
-														   input1.value = percentage;
-														   getLocation();
-														  }
-														 
-														});
-														
-													  $("#output1").bind("change",function(e){alert ("changing ...");$("#slider1").range().val(this.value);getLocation();});
-														$(".rangeBubble").hide();
-															</script>
+							
 							
 					</div>
 					
@@ -504,7 +456,56 @@
 													
 					</div>
 					<div title="Recherche" id="search" style="padding:0px" class="panel" data-footer="none"  data-header="true">
+						<ul class="list"  id="list_lieu">
+							</ul>
+								<script type="text/javascript">
 								
+							var x=document.getElementById("list_lieu");
+														var options = {
+																	  enableHighAccuracy: true,
+																	  timeout: 5000,
+																	  maximumAge: 0
+																	};
+
+														function getLocation() {
+														var radius =input1.value ; 
+														  $("#list_lieu").html ("   Recherche de bâtiments dans un rayon de " + radius + "km");
+														  
+														  if (navigator.geolocation)
+															{
+															navigator.geolocation.getCurrentPosition(showPosition,error,options);
+															}
+														  else{x.innerHTML="Geolocation is not supported by this browser.";}
+														function error(err) {
+															  console.warn('ERROR(' + err.code + '): ' + err.message);
+															};						}
+														function showPosition(position)
+														  {
+														 // x.innerHTML="Latitude: " + position.coords.latitude + 
+														 // "<br>Longitude: " + position.coords.longitude;	
+														 var radius = input1.value;
+																	  $.get( "http://art-zoo.com/modernisme/?find_lieu=true&near_lat=" + position.coords.latitude + "&near_lng=" + position.coords.longitude + "&radius=" + radius , function( data ) {
+																			$( "#list_lieu" ).html( data );
+																			//alert( "Load was performed." );
+																		});
+														  }
+														
+															   
+														var input1=$("#output1").get();
+														var slider1 = $('#slider1').range({
+														  value: 1,
+														  min: 1,
+														  max: 1000,
+														  stepFunc: function(percentage) {
+														   input1.value = percentage;
+														   getLocation();
+														  }
+														 
+														});
+														
+													  $("#output1").bind("change",function(e){alert ("changing ...");$("#slider1").range().val(this.value);getLocation();});
+														$(".rangeBubble").hide();
+															</script>		
 							
 								
 					</div>  
