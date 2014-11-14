@@ -256,15 +256,23 @@
 														}
 
 				function find_wiki(url) {
-
-
-			$.ajax({
+								$.ajax({
 											url:url,
 											success: function (data) {
 														$('#wikipedia').html(data);
 																		}	
 													});	
-										}			
+										}
+
+				function find_map(url) {
+								$.ajax({
+											url:url,
+											success: function (data) {
+														$('#map_content').html(data);
+																		}	
+													});	
+								$.ui.loadContent("my_map",false,false,'slide');
+										}	
         </script>
         <style>
            .samplecode {
@@ -442,6 +450,12 @@
 					</div> 
 					<div title="Info Galerie" class="panel"  style="padding:0px" id="100" data-footer="none"   data-header="true">
 									<div style="padding:0px;margin:0px" id="gallery">
+									</div>
+											
+													
+					</div>
+					<div title="Carte" class="panel"  style="padding:0px" id="my_map" data-footer="none"   data-header="true">
+									<div style="padding:0px;margin:0px" id="map_content">
 									</div>
 											
 													
