@@ -265,12 +265,16 @@
 										}
 
 				function find_map(url) {
+				var height = $(window).height();
+				height = height - $("#header").height();
+				alert (height);
 								$.ajax({
-											url:url,
+											url:url+"&height="+height,
 											success: function (data) {
 														$('#map_content').html(data);
 																		}	
 													});	
+								$('#map_content').css ("height","100%");
 								$.ui.loadContent("my_map",false,false,'slide');
 										}	
         </script>
