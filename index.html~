@@ -1,0 +1,546 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        (function() {
+    if ("-ms-user-select" in document.documentElement.style && navigator.userAgent.match(/IEMobile\/10\.0/)) {
+        var msViewportStyle = document.createElement("style");
+        msViewportStyle.appendChild(
+            document.createTextNode("@-ms-viewport{width:auto!important}")
+        );
+        document.getElementsByTagName("head")[0].appendChild(msViewportStyle);
+    }
+})();
+</script>
+        <title>Modernism</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel="stylesheet" type="text/css" href="css/icons.css" />    
+ 
+       <!--   
+     <link rel="stylesheet" type="text/css" href="css/af.ui.css" title="default" />
+  -->
+      <link rel="stylesheet" type="text/css" href="css/src/main.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/appframework.css"  />
+
+      <link rel="stylesheet" type="text/css" href="css/src/badges.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/buttons.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/lists.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/forms.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/grid.css"  />
+
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.actionsheet.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.popup.css"  />
+      <link rel="stylesheet" type="text/css" href="plugins/css/af.selectBox.css"  />
+	   <link rel="stylesheet" type="text/css" href="plugins/css/jq_range.css"  />
+        
+      <link rel="stylesheet" type="text/css" href="css/src/android.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/win8.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/bb.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/ios7.css"  />
+      <link rel="stylesheet" type="text/css" href="css/src/ios.css"  />        
+
+        <!-- uncomment for AppMobi apps <script type="text/javascript" charset="utf-8" src="http://art-zoo.com:58888/_appMobi/appmobi.js"></script>
+<script type="text/javascript" charset="utf-8" src="http://art-zoo.com:58888/_appMobi/xhr.js"></script>
+-->
+        <script type="text/javascript" charset="utf-8" src="./appframework.js"></script>
+        <!-- include af.desktopBrowsers.js on desktop browsers only -->
+        <script>
+
+            function loadedPanel(what) {
+                //We are going to set the badge as the number of li elements inside the target
+                $.ui.updateBadge("#aflink", $("#af").find("li").length);
+            }
+
+
+            function unloadedPanel(what) {
+                console.log("unloaded " + what.id);
+            }
+
+            if (!((window.DocumentTouch && document instanceof DocumentTouch) || 'ontouchstart' in window)) {
+                var script = document.createElement("script");
+                script.src = "plugins/af.desktopBrowsers.js";
+                var tag = $("head").append(script);
+            }
+           
+          
+        </script>
+		<script type="text/javascript" src="phonegap.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.actionsheet.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.css3animate.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.passwordBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.scroller.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.selectBox.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchEvents.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/af.touchLayer.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.popup.js"></script>
+		<script type="text/javascript" charset="utf-8" src="./plugins/jq.range.js"></script>
+
+        <script type="text/javascript" charset="utf-8" src="./ui/src/appframework.ui.js"></script>
+        <!-- <script type="text/javascript" charset="utf-8" src="./ui/transitions/all.js"></script> -->
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/fade.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/flip.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/pop.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slide.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideDown.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./ui/transitions/slideUp.js"></script>
+        <script type="text/javascript" charset="utf-8" src="./plugins/af.slidemenu.js"></script>
+
+        <script type="text/javascript">
+            /* This function runs once the page is loaded, but appMobi is not yet active */
+            //$.ui.animateHeaders=false;
+             ////var search=document.location.search.toLowerCase().replace("?","");
+             //if(!search)
+                //$.os.useOSThemes=false;
+             var search ="ios7";     
+			 $("#afui").className=search;
+     
+            
+            var webRoot = "./";
+            // $.os.android=true;
+            $.ui.autoLaunch = false;
+            $.ui.openLinksNewTab = false;
+            //$.ui.resetScrollers=false;
+            
+
+            $(document).ready(function(){
+                   $.ui.launch();
+				      
+			
+			$(".panel").bind("swipeRight",function(){
+			$.ui.goBack();
+												});
+    
+		});
+
+            
+            /* This code is used to run as soon as appMobi activates */
+            var onDeviceReady = function () {
+                AppMobi.device.setRotateOrientation("portrait");
+                AppMobi.device.setAutoRotate(false);
+                webRoot = AppMobi.webRoot + "";
+                //hide splash screen
+                AppMobi.device.hideSplashScreen();
+                $.ui.blockPageScroll(); //block the page from scrolling at the header/footer
+                $.ui.launch();
+
+            };
+            document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+
+            function showHide(obj, objToHide) {
+                var el = $("#" + objToHide)[0];
+
+                if (obj.className == "expanded") {
+                    obj.className = "collapsed";
+                } else {
+                    obj.className = "expanded";
+                }
+                $(el).toggle();
+
+            }
+
+
+            if($.os.android||$.os.ie||search=="android"){
+                $.ui.ready(function(){
+                    $("#main .list").append("<li><a id='toggleAndroidTheme'>Toggle Theme Color</a></li>");
+                    var $el=$("#afui");
+                    $("#toggleAndroidTheme").bind("click",function(e){
+                        if($el.hasClass("light"))
+                            $el.removeClass("light");
+                        else
+                            $el.addClass("light");
+                    });
+                });
+            }
+     		function go_to(widget,url) {	
+			
+							$.ui.showMask('recherche');	
+							$("#gallery").html("");						
+								$.ajax({
+									url:url+"?ajax=true",
+									success: function (data) {
+															$("#gallery").html(data);
+															$.ui.hideMask();	
+														}
+										});
+								$.ui.loadContent("100",false,false,'slide');	
+										}	
+			function go_to_gallery(url) {	
+				
+					$.ui.loadContent("100",false,false,'slide');
+													
+								$.ajax({
+									url:url+"?ajax=true",
+									success: function (data) {
+															$("#gallery").html(data);
+															$.ui.hideMask();	
+														}
+										});
+										}	
+								var current_lieu="";
+			
+				
+			function find_lieu(lieu,type) {
+									$.ui.showMask('recherche');		
+									$.ui.loadContent("my_lieu",false,false,'slide');
+									
+									if (current_lieu != lieu) {
+															find_content(lieu,type);
+															
+														}
+									$.ui.hideMask();
+																
+									}
+				function find_content(lieu,type) {	
+							
+				
+						if (!type)	
+							type="ville";	
+					
+						$.ajax({
+											url:'http://art-zoo.com/modernisme/'+type+'/'+lieu+'/?ajax=true',
+											success: function (data) {
+														$('#content_expos').html(data);
+														current_lieu=lieu;
+														
+																		}
+													
+												});
+											}	
+					function find_architect(architect) {				
+								
+								
+											$.ajax({
+											url:'http://art-zoo.com/modernisme/architect/'+architect+'/?ajax=true',
+											success: function (data) {
+														$('#content_architect').html(data);
+																		}	
+													});									
+								
+									
+									$.ui.hideMask();		
+									$.ui.loadContent("my_architect",false,false,'slide');
+														}
+				
+				function find_tag(tag) {				
+								
+								
+											$.ajax({
+											url:'http://art-zoo.com/modernisme/tag/'+tag+'/?ajax=true',
+											success: function (data) {
+														$('#content_tag').html(data);
+																		}	
+													});									
+								
+									
+									$.ui.hideMask();		
+									$.ui.loadContent("my_tag",false,false,'slide');
+														}
+				
+				function find_cat(cat) {				
+								
+								
+											$.ajax({
+											url:'http://art-zoo.com/modernisme/batiments/'+cat+'/?ajax=true',
+											success: function (data) {
+														$('#content_cat').html(data);
+																		}	
+													});									
+								
+									
+									$.ui.hideMask();		
+									$.ui.loadContent("my_cat",false,false,'slide');
+														}
+
+				function find_wiki(url) {
+								$.ajax({
+											url:url,
+											success: function (data) {
+														$('#wikipedia').html(data);
+																		}	
+													});	
+										}
+
+				function find_map(url) {
+				var height = $(window).height();
+				height = height - $("#header").height();
+			
+								$.ajax({
+											url:url+"&height="+height,
+											success: function (data) {
+														$('#map_content').html(data);
+																		}	
+													});	
+								$('#map_content').css ("height","100%");
+								$.ui.loadContent("my_map",false,false,'slide');
+										}	
+        </script>
+        <style>
+           .samplecode {
+                background: #ccc;
+                color: #000;
+                border-radius: 10px;
+                padding: 10px;
+                margin-bottom: 10px;
+                margin-top: 10px;
+           }
+
+           /* for the grid demo */
+         
+		   #header {background:#ccc !important;border-bottom:1px solid #555 !important}
+		   body {background:#ccc}
+		   .list {color:#333 !important}
+		   .panel {background:#f2f2F2!important}
+
+		   h1{margin:15px 0px;text-transform:uppercase;text-align:center;padding:10px;font-weight:200;width:auto;color:#666;font-size:22px;padding:5px}
+		   h1 strong{font-size:12px;}
+		   .expo_info {width:100%;clear:both}
+		   .expo img{width:100Px;height:auto;margin-right:10px;float:left}
+		   .expo h4{clear:both;padding:3px 0px 3px 0px;margin:0;padding-left:20px }
+		  .my_date{position:relative;top:+10px;left:-10px;background:white;color:black;font-size:12px;font-weight:200;clear:both;padding:0px 5px 0px 5px;border:1px solid #666}
+			.date {color:white:font-size:18px !important}
+		   .expo strong {Font-size:12px;color:#ccc;font-weight:400;}
+		   .cat {text-transform:uppercase;font-size:12px;color:#666}
+		  
+		   .expo  {font-size:10px !important;cilor:black}
+		.expo p {color:#ccc !important;font-size:10px!important;line-height:12px !important;text-align:justify}
+		
+		   .expo h3 {font-size:16px;text-transform:uppercase !important;font-weight:200 !important}
+		   .go_gallery {width:100%;background:#336699;color:white;font-size:10px;padding:5px;box-shadow: 3px 3px 0px  #ccc}
+		   .go_gallery strong {color:white;font-size:10px;font-weight:700;}
+		   #gallery{color:#ccc;padding:0 !important;margin:0 !important}
+		   #gallery img{width:100%;height:auto}
+		   #gallery p, #gallery h1{padding:3px 5px}
+		   #gallery b {background: #fff !important;
+				padding: 2px !important;
+				margin-right: 10px !important;
+				position:relative;
+				left:-5px;
+				display: inline !important;
+				font-size: 10px !important;
+				font-weight: normal;
+				color: #000 !important;
+				box-shadow: 2px 2px 0px  #666 !important;}
+		   #gallery h3 {padding:0px 5px;text-transform:uppercase;font-weight:200;color:#666}
+		  
+			.lieu_art {padding: 5px !important;}
+			.grid div {border:0;padding:10px;color:#666}
+			.grid div ul,.grid div ol{padding-left:50px}
+			.expo li {padding:5px !important}
+			.expo li img {height:40px;width:auto}
+			
+			.button {color:white !important}
+			
+			.logo_img {width:auto !important;height:25px !important;position:relative;left:-10px;margin-right:10px !important;vertical-align:middle !important}
+			.delete_gallery{float:right;background:white;border-radius:4px;color:black;font-size:10px;padding:5px}
+			.playlist li {padding:10px;border-bottom:1px dotted #ccc}
+			.follow {background:white !important;color:black ! important;font-weight:200;text-transform:uppercase;border:0 ! important;padding:10px auto !important; }
+			.last {color:red;position:relative;top:+10px;font-size:12px;font-weight:200;padding:1px 5px 1px 5px;}
+			.single_button {clear:both}
+        </style>
+</head>
+
+   <body>
+    <div id="afui" >
+        <!-- this is the header div -->
+        <div id="header">
+       
+        </div>
+
+        
+        <div id="content" style="left:0px ! important">
+		
+		
+        
+					<div id="home" class="panel"  title='Modernisme' selected="true" data-header="true" data-footer="none" >
+			
+							 <h1>MODERNISm</h1> 
+							<ul class="list" >
+								<li ><a href="#architectes">Les architectes</a></li>
+								<li ><a href="#villes">Villes</a></li>
+								<li ><a href="#regions">Pays (+Régions)</a></li>
+								<li ><a href="#search">Recherche</a></li>
+							</ul>
+							
+						
+							
+							
+					</div>
+					
+					
+					
+					<div title="" id="my_lieu" class="panel" style="padding:0px;" data-footer="none"  data-header="true">
+								<div id="content_expos" style="padding:0px;margin:0px">
+
+								</div>
+							
+								
+					</div>  
+				
+					
+					<div title='Liste des regions' id="regions" class="panel" data-footer="none"   data-header="true">
+						<h1>Liste des regions</h1>
+						<script type="text/javascript">
+                        function get_villes() {
+                            $.ajax({
+                                url: 'http://art-zoo.com/modernisme/regions/?ajax=true',
+                                success: function (data) {
+                                    $('#list_region').html(data)
+                                }
+                            });
+                        }
+						get_villes();
+                    </script>
+								<ul class="list" id="list_region">
+									
+								</ul>
+					</div>
+					 
+					<div title='Liste des villes' id="villes" class="panel" data-footer="none"   data-header="true">
+						<h1>Liste des villes</h1>
+									<script type="text/javascript">
+									function get_villes() {
+										$.ajax({
+											url: 'http://art-zoo.com/modernisme/villes/?ajax=true',
+											success: function (data) {
+												$('#list_ville').html(data)
+											}
+										});
+									}
+									get_villes();
+									</script>
+								<ul class="list" id="list_ville">
+									
+								</ul>
+					</div>  
+					
+					<div title='Liste des architectes' id="architectes" class="panel" data-footer="none"   data-header="true">
+						<h1>Liste des Architectes</h1>
+						<script type="text/javascript">
+                        function get_villes() {
+                            $.ajax({
+                                url: 'http://art-zoo.com/modernisme/architectes/?ajax=true',
+                                success: function (data) {
+                                    $('#list_architects').html(data)
+                                }
+                            });
+                        }
+						get_villes();
+						</script>
+								<ul class="list" id="list_architects">
+									
+								</ul>
+					</div>  
+					<div title="Mon architecte ..." id="my_architect" style="padding:0px" class="panel" data-footer="none"  data-header="true">
+								<div style="padding:0px;margin:0px" id="content_architect">
+								</div>
+							
+								
+					</div> 
+						<div title="Mot clef" id="my_tag" style="padding:0px" class="panel" data-footer="none"  data-header="true">
+								<div style="padding:0px;margin:0px" id="content_tag">
+								</div>
+							
+								
+					</div>  
+					<div title="Bâtiment" id="my_cat" style="padding:0px" class="panel" data-footer="none"  data-header="true">
+								<div style="padding:0px;margin:0px" id="content_cat">
+								</div>
+							
+								
+					</div> 
+					<div title="Info Galerie" class="panel"  style="padding:0px" id="100" data-footer="none"   data-header="true">
+									<div style="padding:0px;margin:0px" id="gallery">
+									</div>
+											
+													
+					</div>
+					<div title="Carte" class="panel"  style="padding:0px" id="my_map" data-footer="none"   data-header="true">
+									<div style="padding:0px;margin:0px" id="map_content">
+									</div>
+											
+													
+					</div>
+					<div title="Recherche" id="search" style="padding:0px" class="panel" data-footer="none"  data-header="true">
+						<h1>à Proximité</h1>
+							 							
+							<div style="position:relative;top:-10px;left:100px;width:400px">
+								 <input type="text" id="output1" onChange="getLocation()" style='width:35px;border:0;float:left;padding:0px !important;margin:0' /><span style="position:relative;top:+10px"> Km</span>
+							</div>
+							 <div style="padding:20px;width:100%;">
+												<div id="slider1" class="slider">
+												</div>
+							 </div>	
+							
+						<ul class="list"  id="list_lieu">
+							</ul>
+								<script type="text/javascript">
+								
+							var x=document.getElementById("list_lieu");
+														var options = {
+																	  enableHighAccuracy: true,
+																	  timeout: 5000,
+																	  maximumAge: 0
+																	};
+
+														function getLocation() {
+														var radius =input1.value ; 
+														  $("#list_lieu").html ("   Recherche de bâtiments dans un rayon de " + radius + "km");
+														  
+														  if (navigator.geolocation)
+															{
+															navigator.geolocation.getCurrentPosition(showPosition,error,options);
+															}
+														  else{x.innerHTML="Geolocation is not supported by this browser.";}
+														function error(err) {
+															  console.warn('ERROR(' + err.code + '): ' + err.message);
+															};						}
+														function showPosition(position)
+														  {
+														 // x.innerHTML="Latitude: " + position.coords.latitude + 
+														 // "<br>Longitude: " + position.coords.longitude;	
+														 var radius = input1.value;
+																	  $.get( "http://art-zoo.com/modernisme/?find_lieu=true&near_lat=" + position.coords.latitude + "&near_lng=" + position.coords.longitude + "&radius=" + radius , function( data ) {
+																			$( "#list_lieu" ).html( data );
+																			//alert( "Load was performed." );
+																		});
+														  }
+														
+															   
+														var input1=$("#output1").get();
+														var slider1 = $('#slider1').range({
+														  value: 1,
+														  min: 1,
+														  max: 1000,
+														  stepFunc: function(percentage) {
+														   input1.value = percentage;
+														   getLocation();
+														  }
+														 
+														});
+														
+													  $("#output1").bind("change",function(e){alert ("changing ...");$("#slider1").range().val(this.value);getLocation();});
+														$(".rangeBubble").hide();
+															</script>		
+							
+								
+					</div>  
+
+        </div>
+
+        <!-- bottom navbar.  Add additional tabs here -->
+    
+          <header id="header">
+                <a id="backButton" onclick="$.ui.goBack()" class='button'></a>
+                     <a href="#home" class="button icon home" style="float:right"></a>
+					   <a href="#architectes" class="button icon user" style="float:right"></a>
+					    <a href="#search" class="button icon magnifier" style="float:right"></a>
+           </header>
+        <!-- this is the default left side nav menu -->
+        
+    </div>
+</body>
+</html>
