@@ -201,7 +201,7 @@
 							type="ville";	
 					
 						$.ajax({
-											url:'http://art-zoo.com/modernisme/'+type+'/'+lieu+'/?ajax=true',
+											url:'http://modernism.art-zoo.com/fr/'+type+'/'+lieu+'/?ajax=true',
 											success: function (data) {
 														$('#content_expos').html(data);
 														current_lieu=lieu;
@@ -214,7 +214,7 @@
 								
 								
 											$.ajax({
-											url:'http://art-zoo.com/modernisme/architect/'+architect+'/?ajax=true',
+											url:'http://modernism.art-zoo.com/fr/architect/'+architect+'/?ajax=true',
 											success: function (data) {
 														$('#content_architect').html(data);
 																		}	
@@ -229,7 +229,7 @@
 								
 								
 											$.ajax({
-											url:'http://art-zoo.com/modernisme/tag/'+tag+'/?ajax=true',
+											url:'http://modernism.art-zoo.com/fr/tag/'+tag+'/?ajax=true',
 											success: function (data) {
 														$('#content_tag').html(data);
 																		}	
@@ -244,7 +244,7 @@
 								
 								
 											$.ajax({
-											url:'http://art-zoo.com/modernisme/batiments/'+cat+'/?ajax=true',
+											url:'http://modernism.art-zoo.com/fr/batiments/'+cat+'/?ajax=true',
 											success: function (data) {
 														$('#content_cat').html(data);
 																		}	
@@ -386,7 +386,7 @@
 						<script type="text/javascript">
                         function get_villes() {
                             $.ajax({
-                                url: 'http://art-zoo.com/modernisme/regions/?ajax=true',
+                                url: 'http://modernism.art-zoo.com/fr/regions/?ajax=true',
                                 success: function (data) {
                                     $('#list_region').html(data)
                                 }
@@ -404,7 +404,7 @@
 									<script type="text/javascript">
 									function get_villes() {
 										$.ajax({
-											url: 'http://art-zoo.com/modernisme/villes/?ajax=true',
+											url: 'http://modernism.art-zoo.com/fr/villes/?ajax=true',
 											success: function (data) {
 												$('#list_ville').html(data)
 											}
@@ -422,7 +422,7 @@
 						<script type="text/javascript">
                         function get_villes() {
                             $.ajax({
-                                url: 'http://art-zoo.com/modernisme/architectes/?ajax=true',
+                                url: 'http://modernism.art-zoo.com/fr/architectes/?ajax=true',
                                 success: function (data) {
                                     $('#list_architects').html(data)
                                 }
@@ -503,7 +503,7 @@
 														 // x.innerHTML="Latitude: " + position.coords.latitude + 
 														 // "<br>Longitude: " + position.coords.longitude;	
 														 var radius = input1.value;
-																	  $.get( "http://art-zoo.com/modernisme/?find_lieu=true&near_lat=" + position.coords.latitude + "&near_lng=" + position.coords.longitude + "&radius=" + radius , function( data ) {
+																	  $.get( "http://modernism.art-zoo.com/fr/?find_lieu=true&near_lat=" + position.coords.latitude + "&near_lng=" + position.coords.longitude + "&radius=" + radius , function( data ) {
 																			$( "#list_lieu" ).html( data );
 																			//alert( "Load was performed." );
 																		});
